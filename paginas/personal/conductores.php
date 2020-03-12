@@ -51,11 +51,10 @@
 								<table class="table table-bordered" id="tabla_conductores" width="100%" cellspacing="0" id="tabla_conductores">
 									<thead>
 										<tr>
-											<th class="text-center">No. Conductor</th>
+											<th hidden class="text-center">No. Conductor</th>
 											<th class="text-center">Nombre</th>
-											<th class="text-center">RFC</th>
+											<th class="text-center">CURP</th>
 											<th class="text-center">No. Licencia</th>
-											<th class="text-center">Vigencia</th>
 											<th class="text-center">Estatus</th>
 											<th class="text-center">Empresa</th>
 											<th class="text-center"></th>
@@ -69,7 +68,6 @@
 											<th class="text-center">
 												<input type="text" data-indice="1" class="form-control" placeholder="Nombre del conductor" id="nombre_conductor">
 											</th>
-											<th class="text-center"></th>
 											<th class="text-center"></th>
 											<th class="text-center"></th>
 											<th class="text-center"></th>
@@ -111,9 +109,15 @@
 		</a>		
     <?php 
 			include("../../scripts.php");
-            include("form_conductores.php");
+			include("form_conductores.php");
 		?>
-    <script src="conductores.js"></script>
-    <script src="js/buscar.js"></script>
+		
+		
+		<link href="../../plugins/fileupload/fileupload.css" rel='stylesheet' type='text/css'>
+		<script src="../../plugins/fileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/fileupload/jquery.fileupload.js"></script>
+		
+    <script src="conductores.js?v=<?= date("d-m-Y-H-i-s")?>"></script>
+    
 	</body>
 </html>

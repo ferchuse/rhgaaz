@@ -140,7 +140,7 @@
 	<a class="scroll-to-top rounded" href="#page-top">
 		<i class="fas fa-angle-up"></i>
 	</a>		
-	<?php include("../../scripts.php")?>
+		<?php include("../../scripts.php")?>
 	
 	<link href="../../plugins/fileupload/fileupload.css" rel='stylesheet' type='text/css'>
 	<script src="../../plugins/fileupload/jquery.ui.widget.js"></script>
@@ -148,7 +148,7 @@
 	
 	<?php include("form_unidades.php")?>
 	<?php include("modal_historial.php")?>
-	
+
 	<script src="unidades.js?v=<?= date("d-m-Y-H-i-s")?>"></script>
 </body>
 </html>

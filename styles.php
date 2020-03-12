@@ -9,6 +9,7 @@
 <link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template-->
+<link href="../../css/custom_checkbox.css" rel="stylesheet">
 <link href="../../css/sb-admin.css" rel="stylesheet">
 <link href="../../css/estilos.css" rel="stylesheet">
 <link href="../../css/alertify.min.css" rel="stylesheet">

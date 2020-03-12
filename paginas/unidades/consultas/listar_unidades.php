@@ -84,24 +84,24 @@
 				<?php 	
 				}
 			?>
-			</tbody>
-			<tfoot>
+		</tbody>
+		<tfoot>
 			<tr>
-			<td colspan="7">
-			<?php echo mysqli_num_rows($result);?> Registros.
-			</td>
+				<td colspan="7">
+					<?php echo mysqli_num_rows($result);?> Registros.
+				</td>
 			</tr>
-			</tfoot>
-			</table>
-			
-			
-			<?php
-				
-				
-			}
-			else {
-				echo "Error en".$consulta. mysqli_error($link);
-			}
-			
-			
-				?>										
+		</tfoot>
+	</table>
+	
+	
+	<?php
+		
+		
+	}
+	else {
+		echo "Error en".$consulta. mysqli_error($link);
+	}
+	
+	
+?>										
