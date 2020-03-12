@@ -1,0 +1,104 @@
+<?php 
+	session_start();
+	// if(count($_SESSION) == 0){
+	// die("<div class='alert alert-danger'>Tu Sesión ha caducado, recarga la página.</div>");
+	// }
+	include('../../../conexi.php');
+	include('../../../funciones/generar_select.php');
+	include('../../../funciones/console_log.php');
+	$link = Conectarse();
+	$filas = array();
+	$respuesta = array();
+	
+	
+	
+	
+	$consulta = "SELECT * FROM ordenes_trabajo 
+	
+	LEFT JOIN conductores USING(id_conductores)
+	
+	WHERE 1 
+	";
+	
+	
+	// if($_GET["id_usuarios"] != ""){
+	// $consulta.="AND corridas.id_usuarios = '{$_GET["id_usuarios"]}'";
+	// }
+	// if($_GET["id_empresas"] != ""){
+	// $consulta.="AND corridas.id_empresas = '{$_GET["id_empresas"]}'";
+	// }	
+	if($_GET["num_eco"] != ""){
+	$consulta.="AND num_eco = '{$_GET["num_eco"]}'";
+	}
+	
+	$consulta.="
+	ORDER BY id_ordenes DESC "
+	;
+	
+	
+	$result = mysqli_query($link,$consulta);
+	if($result){
+		
+		if( mysqli_num_rows($result) == 0){
+			die("<div class='alert alert-danger'>No hay registros 	</div> ");
+			
+		}
+		
+		
+		
+	?> 
+	<pre hidden>
+		<?php echo $consulta?>
+	</pre>
+	
+	
+	<table class="table table-bordered" width="100%" cellspacing="0">
+		<thead>
+			<tr>
+				<th class="text-center">Folio</th>
+				<th class="text-center">No.Eco</th>
+				<th class="text-center">Operador</th>
+				<th class="text-center">Dias de trabajo</th>
+				<th class="text-center d-print-none"></th>
+			</tr>
+		</thead>
+		<tbody id="">
+			<?php 
+				
+				while($fila = mysqli_fetch_assoc($result)){
+					
+				?>
+				<tr>
+					
+					<td><?php echo $fila["id_ordenes"]?></td>
+					<td><?php echo $fila["num_eco"]?></td>
+					<td><?php echo $fila["nombre_conductores"]?></td>
+					<td><?php echo $fila["dias"]?></td>
+					
+					<td class=" d-print-none">
+						<a target="_blank" href="impresion/imprimir_orden_trabajo.php?id_registro=<?= $fila["id_ordenes"]?>" class="btn btn-info  btn-sm " title="Imprimir" >
+							<i class="fas fa-print"></i> 
+						</a>
+					</td>
+				</tr>
+				
+				<?php
+					
+				}
+			?>
+			
+		</tbody>
+	</table>
+	
+	
+	<?php
+		
+	}
+	
+	else {
+		echo "Error en ".$consulta.mysqli_Error($link);
+		
+	}
+	
+	
+?>							

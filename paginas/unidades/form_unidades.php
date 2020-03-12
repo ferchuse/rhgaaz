@@ -8,6 +8,7 @@
 				</div>
 				
 				<div class="modal-body">
+						<input type="hidden" id="action">
 					<div class="row mb-2">
 						<div class="col-2">
 							<label for="nombre_propietario">Num Serie:</label>
@@ -15,6 +16,23 @@
 						<div class="col-5">			
 							<input class="form-control" required type="text" name="serie" id="serie">
 						</div>	
+						<div class="col-5">			
+							<div class="form-group">
+								<span class="btn btn-success fileinput-button">
+									<i class="fas fa-upload"></i> 
+									<input class="fileupload" type="file" accept="image/*" name="files[]" data-url="../../plugins/fileupload/server_upload.php" >
+								</span>
+								
+								<div class="progress " >
+									<div class="progress-bar progress-bar-striped active" >
+									</div>
+								</div>	
+								
+								<img id="foto_thumb" class="w-50">
+								
+								<input class="url" id="foto_factura" name="foto_factura" type="hidden"  >
+							</div>
+						</div>
 					</div>
 					<div class="row mb-2">
 						<div class="col-2">
@@ -39,16 +57,7 @@
 						<div class="col-5">			
 							<input class="form-control" type="text" name="placas" id="placas" required>
 						</div>
-					</div>
-					<div class="row mb-2">
-						<div class="col-2">
-							<label for="nombre_propietario">T de Circulación:</label>
-						</div>	
 						<div class="col-5">			
-							<input class="form-control" type="text" name="t_circulacion" id="t_circulacion" required>
-						</div>
-						<div class="col-5">			
-							
 							<div class="form-group">
 								<span class="btn btn-success fileinput-button">
 									<i class="fas fa-upload"></i> 
@@ -62,11 +71,33 @@
 								
 								<img id="foto_thumb" class="w-50">
 								
-								<input class="url" id="foto_serie" name="foto_serie" type="hidden"  >
-								
-								
+								<input class="url" id="foto_placas" name="foto_placas" type="hidden"  >
 							</div>
-							
+						</div>
+					</div>
+					<div class="row mb-2">
+						<div class="col-2">
+							<label for="nombre_propietario">T de Circulación:</label>
+						</div>	
+						<div class="col-5">			
+							<input class="form-control" type="text" name="t_circulacion" id="t_circulacion" required>
+						</div>
+						<div class="col-5">			
+							<div class="form-group">
+								<span class="btn btn-success fileinput-button">
+									<i class="fas fa-upload"></i> 
+									<input class="fileupload" type="file" accept="image/*" name="files[]" data-url="../../plugins/fileupload/server_upload.php" >
+								</span>
+								
+								<div class="progress " >
+									<div class="progress-bar progress-bar-striped active" >
+									</div>
+								</div>	
+								
+								<img id="foto_thumb" class="w-50">
+								
+								<input class="url" id="foto_circulacion" name="foto_circulacion" type="hidden"  >
+							</div>
 						</div>
 					</div>
 					<div class="row mb-2">
@@ -127,8 +158,9 @@
 						<div class="col-5">			
 							<select class="form-control" id="estatus_unidades" name="estatus_unidades">
 								<option value="">Seleccione</option>
-								<option selected value="Alta">Alta</option>
+								<option selected value="Activa">Activa</option>
 								<option value="Baja">Baja</option>
+								<option value="Reporte">Reporte</option>
 								<option value="Inactivo">Inactivo</option>
 							</select>
 						</div>

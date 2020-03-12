@@ -149,6 +149,7 @@ function guardarRegistro(event){
 			listarRegistros();
 			}else{
 			console.log(respuesta.mensaje);
+			alertify.error(respuesta.mensaje)
 		}
 	});
 	
