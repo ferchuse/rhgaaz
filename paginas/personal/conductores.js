@@ -1,9 +1,8 @@
 $(document).ready(function(){
 	
-	//=====PROMESA DE LISTAR CONDUCTOR========
+	
 	listarRegistros();
 	
-	//========DAR LCIK EN BOTON DE NUEVO=============
 	$('.nuevo').on('click',function(){
 		$('#form_edicion')[0].reset();
 		$('.modal-title').text('Nuevo Conductor');
