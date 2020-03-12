@@ -19,7 +19,10 @@
 		
 		$select .= $required ? " required " : " ";
 		$select .= $disabled ? " disabled " : " ";
-		$select.= "class='form-control' name='$name' id='$id' >";
+		$select.= "class='form-control' name='$name'" ;
+		$select.= $filtro ? "" : "id='$id'";
+		$select.= ">";
+		
 		if($filtro){
 			$select .= "<option value=''>Todos</option>";
 		} 

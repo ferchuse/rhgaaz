@@ -28,7 +28,10 @@
 	// $consulta.="AND corridas.id_empresas = '{$_GET["id_empresas"]}'";
 	// }	
 	if($_GET["num_eco"] != ""){
-	$consulta.="AND num_eco = '{$_GET["num_eco"]}'";
+		$consulta.="AND num_eco = '{$_GET["num_eco"]}'";
+	}
+	if($_GET["id_conductores"] != ""){
+		$consulta.="AND id_conductores = '{$_GET["id_conductores"]}'";
 	}
 	
 	$consulta.="
@@ -59,6 +62,7 @@
 				<th class="text-center">No.Eco</th>
 				<th class="text-center">Operador</th>
 				<th class="text-center">Dias de trabajo</th>
+				<th class="text-center">Estatus</th>
 				<th class="text-center d-print-none"></th>
 			</tr>
 		</thead>
@@ -74,11 +78,15 @@
 					<td><?php echo $fila["num_eco"]?></td>
 					<td><?php echo $fila["nombre_conductores"]?></td>
 					<td><?php echo $fila["dias"]?></td>
+					<td><?php echo $fila["estatus_ordenes"]?></td>
 					
 					<td class=" d-print-none">
 						<a target="_blank" href="impresion/imprimir_orden_trabajo.php?id_registro=<?= $fila["id_ordenes"]?>" class="btn btn-info  btn-sm " title="Imprimir" >
 							<i class="fas fa-print"></i> 
 						</a>
+						<button data-id_registro="<?= $fila["id_ordenes"]?>" class="btn btn-warning btn_reporte btn-sm " title="Reporte" >
+							<i class="fas fa-exclamation-triangle"></i> Levantar Reporte
+						</button>
 					</td>
 				</tr>
 				

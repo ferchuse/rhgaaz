@@ -42,9 +42,9 @@
 							<form id="form_filtros" class="form-inline">
 								<div class="form-group">
 									<label>
-										Empresa:
+										Operador:
 									</label>
-									<?php echo generar_select($link, "empresas", "id_empresas", "nombre_empresas", true	);	?>
+									<?php echo generar_select($link, "conductores", "id_conductores", "nombre_conductores", true	);	?>
 								</div>
 								<div class="form-group mx-sm-3 mb-2">
 									<label for="num_eco" >Num Eco:</label>
@@ -52,11 +52,11 @@
 								</div>
 								<div class="form-group mx-sm-3 mb-2">
 									<label for="" class="col-sm col-form-label">Desde:</label>
-									<input type="date" class="form-control" value="<?php echo date("Y-m-d");?>" name="fecha_inicial" id="fecha_inicial">
+									<input type="date" class="form-control" value="<?= date("Y-m-d");?>" name="fecha_inicial" id="fecha_inicial">
 								</div>
 								<div class="form-group mx-sm-3 mb-2">
 									<label for="" class="col-sm col-form-label">Hasta:</label>
-									<input type="date" class="form-control" value="<?php echo $date_final;?>" name="fecha_final" id="fecha_final">
+									<input type="date" class="form-control" value="<?= date("Y-m-d" , strtotime("+30 days"));?>" name="fecha_final" id="fecha_final">
 									
 								</div>
 								
@@ -99,10 +99,11 @@
 		<a class="scroll-to-top rounded d-print-none" href="#page-top">
 			<i class="fas fa-angle-up"></i>
 		</a>
+		<?php include("forms/form_reporte.php");?>
 		
 		<?php include("forms/form_orden.php");?>
     <?php include("../../scripts.php")?>
-    <script src="js/orden_trabajo.js"></script>
+    <script src="js/orden_trabajo.js?v=<?= date("d-m-Y-H-i-s")?>"></script>
     <script src="js/buscar.js"></script>
 	</body>
 </html>
